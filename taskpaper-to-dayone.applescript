@@ -29,7 +29,7 @@ tell application "TaskPaper"
 				-- If project name is not in projectList, add string to achivedTask and projectList
 				if projectList does not contain projectName then
 					set end of projectList to projectName
-					set archivedTasks to archivedTasks & "### " & projectName & return
+					set archivedTasks to archivedTasks & return & "### " & projectName & return
 				end if
 				
 				-- append the full text of the entry, including tags, to our log
