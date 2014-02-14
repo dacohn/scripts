@@ -49,6 +49,8 @@ tell application "TaskPaper"
 			end if
 		end repeat
 	end tell
+
+	save from document
 end tell
 -- send the accumulated results to Day One via the command line tool
 -- http://dayoneapp.com/faq/#commandlineinterface

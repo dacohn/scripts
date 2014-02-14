@@ -11,5 +11,8 @@ tell application "TaskPaper"
 				tell _task to make tag with properties {name:"today"}
 			end if
 		end repeat
+
 	end tell
+
+	save front document
 end tell
