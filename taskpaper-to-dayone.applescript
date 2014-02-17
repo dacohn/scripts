@@ -50,7 +50,7 @@ tell application "TaskPaper"
 		end repeat
 	end tell
 
-	save from document
+	save front document
 end tell
 -- send the accumulated results to Day One via the command line tool
 -- http://dayoneapp.com/faq/#commandlineinterface
