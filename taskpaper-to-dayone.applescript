@@ -12,6 +12,9 @@ end tpdate
 set theDate to tpdate((current date))
 
 tell application "TaskPaper"
+	close windows
+	open (the POSIX path of (path to home folder)) & "/Dropbox/Notes/TaskPaper/Todo.taskpaper"
+	
 	tell front document
 		-- don't care which file your log entry came from?
 		-- comment the next line out
@@ -49,10 +52,13 @@ tell application "TaskPaper"
 			end if
 		end repeat
 	end tell
-
+	
 	save front document
 end tell
 -- send the accumulated results to Day One via the command line tool
 -- http://dayoneapp.com/faq/#commandlineinterface
 -- You'll need to run `ln -s "/Applications/Day One/Day One.app/Contents/MacOS/dayone" /usr/local/bin/dayone` to have it accessible at this path
-do shell script "echo " & (quoted form of archivedTasks) & "|tr -d \"\\t\"|/usr/local/bin/dayone new"
+
+if (count of projectList) is not 0 then
+	do shell script "echo " & (quoted form of archivedTasks) & "|tr -d \"\\t\"|/usr/local/bin/dayone new"
+end if
