@@ -1,4 +1,7 @@
 tell application "TaskPaper"
+	close windows
+	open (the POSIX path of (path to home folder)) & "/Dropbox/Notes/TaskPaper/Todo.taskpaper"
+
 	tell front document
 		repeat with _task in search with query "project != Archive and @tomorrow"
 			if entry type of _task is not project type then
@@ -11,8 +14,8 @@ tell application "TaskPaper"
 				tell _task to make tag with properties {name:"today"}
 			end if
 		end repeat
-
+		
 	end tell
-
+	
 	save front document
 end tell
